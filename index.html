@@ -1,0 +1,53 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+<h1 id="title" style="text-align: center;">Personas</h1>
+<br>
+
+<section  style="text-align: center;" id="sectionAdd">
+    <h4> Añadir Persona</h4>
+    
+    <br>
+</section>
+<section style="text-align: center;" id="sectionFilter"></section>
+<section class="container">
+<table class="table">
+    <thead>
+      <tr id="trTable">
+        <th scope="col" id='col1'>DNI</th>
+        <th scope="col" id='col2'>Nombre</th>
+        <th scope="col" id='col3'>Apellido</th>
+      </tr>
+    </thead>
+    <tbody id ="tbody_">
+      
+    </tbody>
+  </table>
+  </section>
+  <br>
+<section style="text-align: center;">
+    <a class="btn btn-primary btn-lg" href="#" role="button" id="btnBuscarProfesor" >Profesores &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" id="btnBuscarPersonas">Personas &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" id="btnBuscarMatriculas">Matriculas &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" id="btnBuscarAsignaturas">Asignaturas &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" id="btnBuscarImparte">Imparte &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" id="btnBuscarAlumno">Alumnos &raquo;</a>
+    </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./fakeLogica/asignaturaFake.js">    </script>
+<script type="text/javascript" src="./fakeLogica/personaFake.js">    </script>
+<script type="text/javascript" src="./fakeLogica/profesorFake.js">    </script>
+<script type="text/javascript" src="./fakeLogica/matriculaFake.js">    </script>
+<script type="text/javascript"src="./fakeLogica/imparteFake.js">    </script>
+<script type="text/javascript"src="./fakeLogica/alumnosFake.js">    </script>
+
+<script>
+    fetch('/buscarPersonas', {
+        method: 'POST',
+        body: '',
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json())
+      .then(json => representPersonaHtml(json))
+      .catch(err => function(err){
+          if (err) {alert(err)}
+      });
+</script>
